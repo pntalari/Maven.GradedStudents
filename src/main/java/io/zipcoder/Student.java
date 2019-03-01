@@ -3,8 +3,9 @@ package io.zipcoder;
 import org.omg.CORBA.INTERNAL;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Student {
+public class Student implements Comparable<Student> {
 
     public String firstName;
 
@@ -61,6 +62,7 @@ public class Student {
         return str;
     }
 
+
     public Integer getAverageExamScore() {
         Integer avg;
         Double sum = 0.0;
@@ -88,5 +90,8 @@ public class Student {
         return str;
     }
 
-
+    @Override
+    public int compareTo(Student o) {
+        return 0;
+    }
 }
