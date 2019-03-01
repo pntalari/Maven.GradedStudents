@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class ClassroomTest {
@@ -97,7 +98,7 @@ public class ClassroomTest {
         examScores1.add(100.0);
         examScores1.add(150.0);
         examScores2.add(225.0);
-        examScores2.add(25.0);
+        examScores2.add(50.0);
         examScores3.add(100.0);
         examScores3.add(50.0);
         examScores3.add(60.0);
@@ -114,15 +115,11 @@ public class ClassroomTest {
         Classroom classroom = new Classroom(students);
 
         // When
-       // Classroom output = classroom.getStudentsByScore(students);
-        Comparator<Student> comparator = (Comparator<Student>) new Classroom(students);
-        ArrayList<Student> actual = classroom.getStudentsByScore(comparator);
+        Comparator<Student> comparator = new Student();
+        Student[] actual = classroom.getStudentsByScore(comparator);
 
+        ArrayList<Student> actList = new ArrayList<>(Arrays.asList(actual));
         // Then
-        //Assert.assertTrue();
-        System.out.println(actual);
+        System.out.println(actList);
     }
-
-
-
 }

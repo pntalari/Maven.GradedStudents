@@ -1,6 +1,7 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -10,7 +11,7 @@ public class Classroom {
     Integer maxNumberOfStudents;
     Student studObj = new Student();
 
-    public Classroom()  {
+    public Classroom() {
 
     }
 
@@ -23,7 +24,8 @@ public class Classroom {
     }
 
     public ArrayList<Student> getStudents() {
-        return (ArrayList<Student>)students.clone();
+        // return this.students;
+        return (ArrayList<Student>) students.clone();
     }
 
     public double getAverageExamScore() {
@@ -38,16 +40,13 @@ public class Classroom {
     }
 
     public void addStudent(Student student) {
-       this.students.add(student);
+        this.students.add(student);
 
     }
 
-    public void removeStudent(String firstName, String lastName)
-    {
-        for(Student s:students)
-        {
-            if(s.getLastName().equals(lastName) && s.getFirstName().equals(firstName))
-            {
+    public void removeStudent(String firstName, String lastName) {
+        for (Student s : students) {
+            if (s.getLastName().equals(lastName) && s.getFirstName().equals(firstName)) {
                 students.remove(s);
                 break;
             }
@@ -55,10 +54,12 @@ public class Classroom {
 
     }
 
-    public ArrayList<Student> getStudentsByScore(Comparator<Student> comparator){
-        ArrayList<Student> sortedArr = new ArrayList<>();
-        Collections.sort(this.students,comparator);
-        return sortedArr;
+    public Student[] getStudentsByScore(Comparator<Student> comparator) {
+        Student[] studentArr = new Student[students.size()];
+        studentArr = students.toArray(studentArr);
+        Arrays.sort(studentArr,comparator);
+        //Collections.sort(students, comparator);
+        return studentArr;
     }
 
 //    @Override
