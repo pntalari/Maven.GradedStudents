@@ -122,4 +122,36 @@ public class ClassroomTest {
         // Then
         System.out.println(actList);
     }
+
+    @Test
+    public void getGradeBookTest() {
+        // Given
+        ArrayList<Double> examScores1 = new ArrayList<>();
+        ArrayList<Double> examScores2 = new ArrayList<>();
+        ArrayList<Double> examScores3 = new ArrayList<>();
+        examScores1.add(100.0);
+        examScores1.add(150.0);
+        examScores2.add(225.0);
+        examScores2.add(50.0);
+        examScores3.add(50.0);
+        examScores3.add(60.0);
+
+        Student student1 = new Student("student", "one", examScores1);
+        Student student2 = new Student("student", "two", examScores2);
+        Student student3 = new Student("student", "three", examScores3);
+
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+
+        Classroom classroom = new Classroom(students);
+
+        // When
+        classroom.getGradeBook();
+
+        // Then
+       // System.out.println(actList);
+    }
+
 }

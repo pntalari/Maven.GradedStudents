@@ -1,9 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Classroom {
 
@@ -57,16 +54,23 @@ public class Classroom {
     public Student[] getStudentsByScore(Comparator<Student> comparator) {
         Student[] studentArr = new Student[students.size()];
         studentArr = students.toArray(studentArr);
-        Arrays.sort(studentArr,comparator);
+        Arrays.sort(studentArr, comparator);
         //Collections.sort(students, comparator);
         return studentArr;
     }
 
-//    @Override
-//    public int compare(Student o1, Student o2) {
-//        return this.students.compareTo(this.students);
-//    }
+    public void getGradeBook() {
+        Map<ArrayList<Student>, Integer> studMap = new TreeMap<>();
+        Integer count = 1;
+        for (int i = 0; i < students.size(); i++) {
+            studMap.put(this.students,students.get(i).getAverageExamScore());
+        }
+//        An A is awarded to students whose class average is in the upper 10th percentile.
+//        A B is awarded to students whose class average falls between the 11th and 29th percentile.
+//        A C is awarded to students whose class average falls between the 30th and 50th percentile.
+//        A D is awarded to students whose class average falls between the 51st and 89th percentile.
+//        An F is awarded to students whose class average is in the lower 11th percentile.
 
+    }
 
 }
-
